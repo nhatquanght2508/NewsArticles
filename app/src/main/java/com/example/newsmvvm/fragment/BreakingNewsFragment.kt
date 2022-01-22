@@ -2,7 +2,6 @@ package com.example.newsmvvm.fragment
 
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -47,7 +46,7 @@ class BreakingNewsFragment : Fragment() {
                         hideProgressBar()
                         response.data?.let { newsResponse ->
                             newsAdapter.differ.submitList(newsResponse.articles.toList())
-                            val totalPages = newsResponse.totalResult / QUERY_PAGE_SIZE + 1
+                            val totalPages = newsResponse.totalResults / QUERY_PAGE_SIZE + 2
                             isLastPage = viewModel.breakingNewsPage == totalPages
                             if (isLastPage) {
                                 binding.rvBreakingNews.setPadding(0, 0, 0, 0)

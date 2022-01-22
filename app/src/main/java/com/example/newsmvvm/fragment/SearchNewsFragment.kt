@@ -49,7 +49,7 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
                         binding.paginationProgressBar.hide()
                         response.data?.let { newsResponse ->
                             newsAdapter.differ.submitList(newsResponse.articles.toList())
-                            val totalPages = newsResponse.totalResult / Common.QUERY_PAGE_SIZE + 2
+                            val totalPages = newsResponse.totalResults / Common.QUERY_PAGE_SIZE + 2
                             isLastPage = viewModel.searchingNewsPage == totalPages
                             if (isLastPage) {
                                 binding.rvSearchingNews.setPadding(0, 0, 0, 0)
